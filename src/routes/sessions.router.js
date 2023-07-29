@@ -50,7 +50,7 @@ router.post(
     if (!user)
       return res.status(401).send({
         status: "error",
-        error: "El usuario y la contraseña no coinciden!",
+        error: "El usuario o la contraseña no coinciden!",
       });
     //    -------------------------------------
     // estas líneas son para generar la sesión
@@ -75,11 +75,13 @@ router.post(
 );
 
 router.get("/fail-register", (req, res) => {
-  res.status(401).send({ error: "Failed to process register!" });
+  res
+    .status(401)
+    .send({ status: "Error", error: "Failed to process register!" });
 });
 
 router.get("/fail-login", (req, res) => {
-  res.status(401).send({ error: "Failed to process login!" });
+  res.status(401).send({ status: "Error", error: "Failed to process login!" });
 });
 
 router.get("/logout", (req, res) => {

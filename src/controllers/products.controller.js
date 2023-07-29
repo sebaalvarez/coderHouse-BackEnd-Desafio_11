@@ -31,13 +31,9 @@ export async function addProduct(req, res) {
     let product = await pm.addProduct(req.body);
 
     /****  VALIDAR SI SE CARGO O NO EL PRODUCTO */
-
-    res.status(200).send({
-      status: "Success",
-      message: `Se cargo el producto Cod: ${product}`,
-    });
+    res.status(201).send({ status: "Success", payload: product });
   } catch (err) {
-    res.status(400).send({ status: "Error", message: err });
+    res.status(400).send({ status: "Error", error: err });
   }
 }
 

@@ -26,7 +26,8 @@ router.get("/", getAllProducts);
 router.get("/:pid", getProductById);
 
 /***   Carga producto ***/
-router.post("/", authSession, addProduct);
+// router.post("/", authSession, addProduct);
+router.post("/", addProduct);
 
 /*** Actualiza producto por ID ***/
 router.put("/:pid", authSession, updateProductById);

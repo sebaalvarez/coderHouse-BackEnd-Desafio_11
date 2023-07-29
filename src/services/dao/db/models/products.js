@@ -21,8 +21,8 @@ const productSchema = new mongoose.Schema({
   thumbnail: stringTypeSchemaNonUniqueRequired,
   code: stringTypeSchemaUniqueRequired,
   stock: stringTypeSchemaNonUniqueRequired,
-  status: stringTypeSchemaNonUniqueRequired,
-  category: stringTypeSchemaNonUniqueRequired,
+  status: { type: Boolean, default: true },
+  category: { type: String, required: true, default: "Sin  Categoria" },
 });
 
 /**
